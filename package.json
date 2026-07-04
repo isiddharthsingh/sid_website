@@ -1,0 +1,10 @@
+{
+  "name": "sid-website",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
