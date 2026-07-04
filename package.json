@@ -2,6 +2,8 @@
   "name": "sid-website",
   "private": true,
   "scripts": {
+    "dev": "esbuild --servedir=. --serve=localhost:8000",
+    "start": "esbuild --servedir=. --serve=localhost:8000",
     "build": "node scripts/build.mjs"
   },
   "devDependencies": {

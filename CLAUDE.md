@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Development is buildless — serve the project root with any static file server and open it in a browser; every `.jsx` file is transpiled in the browser (Babel Standalone) on each reload:
 
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+npm run dev   # esbuild static server on http://localhost:8000 (npm start works too)
 ```
 
 Opening `index.html` via `file://` does not work: the JSX files are fetched at runtime and blocked by CORS. There is no lint and no tests.
