@@ -1,0 +1,114 @@
+/* ─────────────────────────────────────────────
+   LIGHTEN — flip Experience + GitHub from dark
+   ink-on-cream to match the rest of the site.
+   Overrides selectors in styles.css.
+   ───────────────────────────────────────────── */
+
+/* ── EXPERIENCE ── */
+.experience {
+  background: var(--bg);
+  color: var(--ink);
+}
+.experience .section-marker { color: var(--ink); opacity: 0.55; }
+.experience-head h2 { color: var(--ink); }
+.experience-head .lede { color: var(--ink); opacity: 0.7; }
+
+.exp-rail { border-right: 1px solid var(--line); }
+.exp-rail-label { color: var(--ink); opacity: 0.6; }
+.exp-rail-list li { color: var(--ink); opacity: 0.55; }
+.exp-rail-list li.active { color: var(--clay); opacity: 1; }
+.exp-rail-dot { background: var(--ink); opacity: 0.25; }
+.exp-rail-list li.active .exp-rail-dot {
+  background: var(--clay);
+  opacity: 1;
+  box-shadow: 0 0 0 4px rgba(217,119,87,0.18);
+}
+.exp-rail-foot { color: var(--ink); opacity: 0.5; }
+
+.exp-card { border-top-color: var(--line); }
+.exp-card:last-child { border-bottom-color: var(--line); }
+.exp-card:hover { background: rgba(127,127,127,0.04); }
+
+.exp-card-meta { color: var(--ink); opacity: 0.75; }
+.exp-card-meta .exp-idx { color: var(--clay); opacity: 1; }
+.exp-card-meta .exp-date,
+.exp-card-meta .exp-loc { color: var(--ink); opacity: 1; }
+
+.exp-card-title .exp-company { color: var(--ink); }
+.exp-summary { color: var(--ink); opacity: 0.7; }
+
+.exp-toggle {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  opacity: 0.85;
+}
+.exp-toggle:hover { color: var(--clay); border-color: var(--clay); opacity: 1; }
+.exp-card.open .exp-toggle { background: var(--clay); color: var(--bg); border-color: var(--clay); opacity: 1; }
+
+.exp-impact {
+  background: var(--line);
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+}
+.exp-metric { background: var(--bg); }
+.exp-metric-unit { color: var(--ink); }
+.exp-metric-note { color: var(--ink); opacity: 0.62; }
+
+.exp-detail-label { color: var(--ink); opacity: 0.55; }
+.exp-detail li { color: var(--ink); opacity: 0.82; }
+
+.exp-stack-pills span {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+/* ── GITHUB ── */
+.github {
+  background: var(--bg);
+  color: var(--ink);
+}
+.github .section-marker { color: var(--ink); opacity: 0.55; }
+.github .section-marker .num { color: var(--clay); }
+.github .section-marker::before { background: var(--clay); }
+
+.gh-head h2 { color: var(--ink); }
+.gh-head h2 .it { color: var(--clay); }
+.gh-head .lede { color: var(--ink); opacity: 0.7; }
+.gh-head a { color: var(--clay); border-bottom: 1px solid var(--clay); }
+.gh-head a:hover { color: var(--ink); border-color: var(--ink); }
+
+.gh-stats {
+  background: var(--line);
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+}
+.gh-stat { background: var(--bg); }
+.gh-stat .lbl { color: var(--ink); opacity: 0.55; }
+.gh-stat .val { color: var(--ink); }
+.gh-stat .val .it { color: var(--clay); }
+
+.gh-contrib-head { color: var(--ink); opacity: 0.55; }
+.gh-heatmap, .gh-grid {
+  border-color: var(--line);
+}
+.gh-months, .gh-days { color: var(--ink); opacity: 0.5; }
+.gh-day { background: rgba(127,127,127,0.10); }
+.gh-day.l1 { background: rgba(217,119,87,0.28); }
+.gh-day.l2 { background: rgba(217,119,87,0.55); }
+.gh-day.l3 { background: rgba(217,119,87,0.82); }
+.gh-day.l4 { background: var(--clay); box-shadow: 0 0 8px rgba(217,119,87,0.45); }
+
+.gh-feed-head { color: var(--ink); opacity: 0.55; }
+.gh-empty { color: var(--ink); opacity: 0.5; }
+
+.gh-commit { border-top-color: var(--line); }
+.gh-commit:last-child { border-bottom-color: var(--line); }
+.gh-commit .when { color: var(--ink); opacity: 0.55; }
+.gh-commit .msg { color: var(--ink); }
+.gh-commit .msg .sha { color: var(--ink); opacity: 0.5; }
+.gh-commit .repo {
+  color: var(--clay);
+  border-color: rgba(217,119,87,0.5);
+}
+.gh-commit:hover { background: rgba(127,127,127,0.04); }
