@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Siddharth Singh — Senior Software Engineer</title>
+  <meta name="description" content="Siddharth Singh is a senior full-stack engineer in New York building AI agent platforms, distributed systems, and the infrastructure that runs them." />
+  <meta name="author" content="Siddharth Singh" />
+  <meta name="theme-color" content="#F5F0E8" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Siddharth Singh — Senior Software Engineer" />
+  <meta property="og:description" content="Full-stack engineer building AI agent platforms, distributed systems, and the infrastructure that runs them. Based in New York." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Siddharth Singh — Senior Software Engineer" />
+  <meta name="twitter:description" content="Full-stack engineer building AI agent platforms, distributed systems, and the infrastructure that runs them." />
+  <meta name="twitter:image" content="assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-pages.css">
+  <link rel="stylesheet" href="styles-projects.css">
+  <link rel="stylesheet" href="styles-about.css">
+  <link rel="stylesheet" href="styles-lighten.css">
+  <link rel="stylesheet" href="styles-extras.css">
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="motion.css">
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Lean 2026 motion stack
+       Lenis: buttery momentum scroll
+       lottie-web: hero piece loader
+       (Motion-style inView reveals are handled natively via
+        IntersectionObserver in motion-fx.jsx — Motion v12 is
+        ESM-only, and IO produces identical entrance behavior) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js"></script>
+</head>
+<body>
+  <div id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <div class="pre-eyebrow">Senior Software Engineer · New York</div>
+      <div class="pre-name">Siddharth <span class="it">Singh.</span></div>
+      <div class="pre-bar"><span id="pre-fill"></span></div>
+      <div class="pre-pct"><span id="pre-pct">0</span><span class="pre-pct-sym">%</span></div>
+    </div>
+  </div>
+  <div id="grain"></div>
+  <div id="cursor-glow"></div>
+  <div id="root"></div>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="components/hooks.jsx"></script>
+  <script type="text/babel" src="components/motion-fx.jsx"></script>
+  <script type="text/babel" src="components/motion-plus.jsx"></script>
+  <script type="text/babel" src="components/nav.jsx"></script>
+  <script type="text/babel" src="components/command-palette.jsx"></script>
+  <script type="text/babel" src="components/hero.jsx"></script>
+  <script type="text/babel" src="components/about.jsx"></script>
+  <script type="text/babel" src="components/experience.jsx"></script>
+  <script type="text/babel" src="components/projects.jsx"></script>
+  <script type="text/babel" src="components/tools.jsx"></script>
+  <script type="text/babel" src="components/github.jsx"></script>
+  <script type="text/babel" src="components/resume.jsx"></script>
+  <script type="text/babel" src="components/contact.jsx"></script>
+  <script type="text/babel" src="components/chatbot.jsx"></script>
+  <script type="text/babel" src="components/projects-viz.jsx"></script>
+  <script type="text/babel" src="components/projects-data.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+
+  <!-- Preloader choreography: fills a fake progress bar while React/Babel
+       boot, snaps to 100% the moment the app signals ready, then wipes up. -->
+  <script>
+  (function () {
+    var fill = document.getElementById('pre-fill');
+    var pctEl = document.getElementById('pre-pct');
+    var pre = document.getElementById('preloader');
+    if (!pre) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pct = 0, settled = false, dismissed = false;
+    function paint(v) {
+      v = Math.max(0, Math.min(100, v));
+      if (fill) fill.style.width = v + '%';
+      if (pctEl) pctEl.textContent = Math.round(v);
+    }
+    function dismiss() {
+      if (dismissed) return; dismissed = true;
+      pct = 100; paint(100);
+      setTimeout(function () {
+        pre.classList.add('done');
+        document.documentElement.classList.add('app-revealed');
+        setTimeout(function () { if (pre && pre.parentNode) pre.parentNode.removeChild(pre); }, 900);
+      }, 180);
+    }
+    // creep toward 90% on an ease-out curve while we wait
+    var iv = setInterval(function () {
+      if (settled) return;
+      var ceiling = 90;
+      pct += (ceiling - pct) * 0.08 + 0.4;
+      if (pct > ceiling) pct = ceiling;
+      paint(pct);
+    }, 90);
+    function finish() {
+      settled = true; clearInterval(iv);
+      dismiss();
+    }
+    // app.jsx sets this true after first render
+    var poll = setInterval(function () {
+      if (window.__appReady) { clearInterval(poll); finish(); }
+    }, 60);
+    // hard safety net
+    setTimeout(function () { clearInterval(poll); finish(); }, 6000);
+    if (reduce) { clearInterval(iv); }
+  })();
+  </script>
+</body>
+</html>
