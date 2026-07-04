@@ -1,0 +1,69 @@
+/* page wrapper + home index + nav active */
+.page { min-height: 100vh; padding-top: 80px; }
+.route-fade { animation: routeFade 0.5s cubic-bezier(0.2,0.8,0.2,1); }
+@keyframes routeFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.nav-links a.active { opacity: 1; color: var(--clay); }
+
+.home-index { padding: 120px 32px 200px; max-width: 1320px; margin: 0 auto; position: relative; }
+.home-index-head { margin-bottom: 64px; max-width: 760px; }
+.home-index-head h2 { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: clamp(64px, 10vw, 160px); line-height: 0.9; letter-spacing: -0.02em; }
+.home-index-head h2 .it { font-style: italic; color: var(--clay); }
+.home-index-head p { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: 22px; color: var(--ink-2, var(--ink)); margin-top: 16px; }
+.home-index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+.home-index-card { background: var(--bg); padding: 36px 32px; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto auto; gap: 8px 16px; position: relative; transition: all 0.4s cubic-bezier(0.2,0.8,0.2,1); cursor: pointer; min-height: 200px; }
+.home-index-card .hc-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--clay); letter-spacing: 0.18em; grid-column: 1 / 2; }
+.home-index-card .hc-arrow { font-family: 'JetBrains Mono', monospace; font-size: 18px; color: var(--ink-faint, var(--ink)); grid-column: 2 / 3; grid-row: 1 / 2; transition: all 0.4s; }
+.home-index-card .hc-title { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: 56px; font-style: italic; line-height: 1; letter-spacing: -0.02em; grid-column: 1 / -1; margin-top: 24px; }
+.home-index-card .hc-sub { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: 17px; color: var(--ink-dim, var(--ink)); grid-column: 1 / -1; margin-top: auto; max-width: 32ch; }
+.home-index-card:hover { background: var(--ink); color: var(--bg); }
+.home-index-card:hover .hc-num, .home-index-card:hover .hc-title { color: var(--clay); }
+.home-index-card:hover .hc-sub { color: var(--bg); opacity: 0.75; }
+.home-index-card:hover .hc-arrow { color: var(--clay); transform: translate(4px, -4px); }
+
+/* ─── CONTACT FORM ─── */
+.contact-form {
+  background: rgba(245,240,232,0.04);
+  border: 1px solid rgba(245,240,232,0.14);
+  padding: 32px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.cf-head { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.55); padding-bottom: 16px; border-bottom: 1px solid rgba(245,240,232,0.12); margin-bottom: 8px; }
+.cf-tag-r { color: var(--clay); }
+.cf-row { display: flex; flex-direction: column; gap: 8px; position: relative; }
+.cf-row label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.55); }
+.cf-row .cf-opt { text-transform: none; letter-spacing: 0.05em; opacity: 0.6; }
+.cf-row input, .cf-row textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(245,240,232,0.18);
+  color: var(--bg);
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 22px;
+  padding: 8px 0;
+  outline: none;
+  transition: border-color 0.25s;
+  resize: none;
+}
+.cf-row textarea { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; }
+.cf-row input::placeholder, .cf-row textarea::placeholder { color: rgba(245,240,232,0.32); }
+.cf-row input:focus, .cf-row textarea:focus { border-bottom-color: var(--clay); }
+.cf-row.err input, .cf-row.err textarea { border-bottom-color: var(--clay); }
+.cf-err { position: absolute; right: 0; top: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--clay); letter-spacing: 0.1em; text-transform: uppercase; }
+.cf-submit { display: inline-flex; align-items: center; justify-content: space-between; padding: 18px 24px; background: var(--clay); color: var(--bg-3); font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 0; transition: all 0.3s; margin-top: 8px; }
+.cf-submit:hover:not(:disabled) { background: var(--bg); color: var(--bg-3); }
+.cf-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.cf-submit .cf-arrow { transition: transform 0.3s; }
+.cf-submit:hover:not(:disabled) .cf-arrow { transform: translateX(4px); }
+.cf-fineprint { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(245,240,232,0.4); letter-spacing: 0.05em; line-height: 1.5; }
+.cf-error-banner { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--clay); padding: 12px 14px; border: 1px solid var(--clay); background: rgba(204,120,92,0.06); letter-spacing: 0.03em; line-height: 1.5; }
+.cf-error-banner a { color: var(--clay); text-decoration: underline; text-underline-offset: 3px; }
+
+.cf-sent { text-align: left; padding: 20px 0; }
+.cf-sent-glyph { width: 44px; height: 44px; border-radius: 50%; background: var(--clay); color: var(--bg-3); display: grid; place-items: center; font-size: 22px; margin-bottom: 20px; }
+.cf-sent h3 { font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; font-size: 32px; line-height: 1.1; margin-bottom: 12px; }
+.cf-sent p { font-size: 15px; line-height: 1.5; color: rgba(245,240,232,0.7); margin-bottom: 24px; }
+.cf-sent p a { color: var(--clay); text-decoration: underline; text-underline-offset: 3px; }
+.cf-reset { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); padding: 12px 0; }
+.cf-reset:hover { color: var(--bg); }
+
+@media (max-width: 900px) { .contact-form { padding: 24px; } }
