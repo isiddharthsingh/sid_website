@@ -4,13 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running the site
 
-This is a buildless static site — there is no package.json, no build, no lint, no tests. Serve the project root with any static file server and open it in a browser:
+Development is buildless — serve the project root with any static file server and open it in a browser; every `.jsx` file is transpiled in the browser (Babel Standalone) on each reload:
 
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-Opening `index.html` via `file://` does not work: the JSX files are fetched at runtime and blocked by CORS. To verify a change, reload the browser — every `.jsx` file is re-transpiled on each page load.
+Opening `index.html` via `file://` does not work: the JSX files are fetched at runtime and blocked by CORS. There is no lint and no tests.
+
+Production is a compiled build (`scripts/build.mjs`, run via `npm run build`): esbuild compiles each JSX file to plain JS into `dist/`, rewrites `index.html` to load production React from the CDN (dev builds + Babel Standalone are dev-only), and copies the CSS/assets. Netlify runs this build on every push to `main` and publishes `dist/` (see `netlify.toml`). The compiled files are still classic scripts in the same order — the global-scope architecture below applies to both modes. If you add/remove a JSX file or reorder script tags in `index.html`, the build script's tag-count assertion will catch a mismatch at build time.
 
 ## Architecture
 
