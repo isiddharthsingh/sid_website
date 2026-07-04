@@ -42,6 +42,10 @@ The preloader is inline vanilla JS in `index.html`. It polls for `window.__appRe
 
 Styles are hand-written CSS split by concern (`styles.css` base, then `styles-pages/-projects/-about`, `styles-lighten.css` overrides, `styles-extras.css`, `mobile.css`, `motion.css`), loaded in that order in `index.html` — later files intentionally override earlier ones.
 
+### SidClaw chatbot backend
+
+The chatbot (`components/chatbot.jsx`) POSTs to `/.netlify/functions/chat` (`netlify/functions/chat.mjs`), which holds the system prompt (dossier + scope guardrails) and calls the Claude API (`claude-haiku-4-5`) with the `ANTHROPIC_API_KEY` set in Netlify's environment variables — the key is never in the repo or client code. The client sends only the chat history plus a live-context string (GitHub activity + project catalog), which the function wraps as untrusted data. Locally there is no functions runtime (`npm run dev` is a static server), so SidClaw shows its error fallback — test it on a deploy.
+
 ## Repo notes
 
 `uploads/` and `.thumbnail` are untracked scratch artifacts (gitignored); nothing in the site references them.
