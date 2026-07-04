@@ -1,0 +1,303 @@
+/* ─────────────────────────────────────────────────────────────
+   MOBILE.CSS — comprehensive responsive layer
+   Loaded last so it overrides earlier rules.
+   Breakpoints:  ≤1024 tablet · ≤768 mobile · ≤480 small mobile
+   v2
+   ───────────────────────────────────────────────────────────── */
+
+/* ── TABLET (≤1024) ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .nav { padding: 16px 24px; }
+  .nav-links { gap: 18px; font-size: 11px; }
+
+  .section-marker { top: 28px; left: 24px; }
+
+  .hero { padding: 20px 24px; gap: 36px; }
+  .hero-name { font-size: clamp(64px, 13vw, 160px); }
+
+  .about, .experience, .projects, .tools, .github, .resume, .contact {
+    padding-left: 24px; padding-right: 24px;
+  }
+  .home-index { padding: 80px 24px 140px; }
+  .home-index-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── MOBILE (≤768) ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* prevent any element from forcing horizontal scroll */
+  body { overflow-x: hidden; }
+  .page { padding-top: 64px; }
+
+  /* ── NAV: hamburger drawer ── */
+  .nav {
+    grid-template-columns: 1fr auto;
+    padding: 14px 18px;
+  }
+  .nav-logo { font-size: 20px; }
+  .nav-clock { display: none; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0;
+    background: var(--bg);
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 0 24px;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    padding: 16px 24px;
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+  }
+  .nav-links a::after { display: none; }
+  .nav-burger {
+    display: inline-flex !important;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    margin-right: -10px;
+    background: none; border: none;
+    cursor: pointer;
+    justify-self: end;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: var(--ink);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* default desktop hides burger */
+  /* (handled below in desktop rule) */
+
+  /* ── SECTION CHROME ── */
+  .section-marker {
+    position: relative; top: auto; left: auto;
+    margin: 0 0 20px;
+    font-size: 10px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 18px 18px 32px;
+    gap: 28px;
+    min-height: auto;
+  }
+  .hero-rule { font-size: 9px; flex-wrap: wrap; gap: 8px; }
+  .hero-name {
+    font-size: clamp(54px, 16vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  .hero-lede { font-size: 17px; max-width: none; }
+  .hero-stage { gap: 24px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-meta .col .label { font-size: 9px; }
+  .hero-meta .col .val { font-size: 12px; }
+  .scroll-cue { display: none; }
+
+  /* ── ABOUT ── */
+  .about { padding: 80px 18px 100px; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-headline { font-size: clamp(40px, 9vw, 64px) !important; }
+  .about-body { font-size: 16px; }
+  .about-stats { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .about-stats .stat .num { font-size: 36px; }
+
+  /* ── EXPERIENCE ── */
+  .experience { padding: 80px 18px 100px; }
+  .experience-head h2 { font-size: clamp(48px, 11vw, 72px); }
+  .exp-shell { grid-template-columns: 1fr; gap: 24px; }
+  .exp-rail {
+    position: static !important;
+    border-right: none;
+    border-bottom: 1px solid var(--line-on-dark);
+    padding: 0 0 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .exp-rail-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+  .exp-rail-list li { white-space: nowrap; flex-shrink: 0; }
+  .exp-card { padding: 24px 18px; }
+  .exp-card-head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .exp-card-title .exp-company { font-size: clamp(28px, 7vw, 40px); }
+  .exp-impact { grid-template-columns: 1fr; gap: 12px; }
+  .exp-impact .tile { padding: 16px; }
+  .exp-detail-grid { grid-template-columns: 1fr; gap: 16px; }
+  .exp-stack { grid-template-columns: 1fr; gap: 8px; }
+
+  /* ── PROJECTS ── */
+  .projects { padding: 80px 0 100px; }
+  .projects-head { padding: 0 18px; }
+  .projects-head h2 { font-size: clamp(48px, 11vw, 72px); }
+  .proj-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    height: auto;
+    padding: 0;
+  }
+  .proj-row.reverse { direction: ltr; }
+  .proj-info,
+  .proj-row.reverse .proj-info {
+    padding: 40px 18px 20px;
+    max-width: none;
+  }
+  .proj-title { font-size: clamp(36px, 9vw, 56px) !important; }
+  .proj-desc { font-size: 15px; }
+  .proj-visual {
+    height: 50vh; min-height: 320px;
+    padding: 0 18px 60px;
+  }
+
+  /* ── TOOLS ── */
+  .tools { padding: 80px 18px 100px; }
+  .tools-head h2 { font-size: clamp(48px, 11vw, 72px); }
+  .tools-cat-head { flex-wrap: wrap; gap: 12px; }
+  .tools-cat-head .name { font-size: 22px; }
+  .tools-cat-head .count { font-size: 10px; }
+  .tools-grid { gap: 8px; }
+  .tool-pill { padding: 10px 14px; font-size: 13px; }
+
+  /* ── GITHUB ── */
+  .github { padding: 80px 18px 100px; }
+  .gh-head h2 { font-size: clamp(40px, 9vw, 64px); }
+  .gh-stats { grid-template-columns: 1fr 1fr; }
+  .gh-stat { padding: 20px 16px; }
+  .gh-stat .val { font-size: 36px; }
+  .gh-grid {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 16px;
+  }
+  .gh-grid-cells { min-width: 700px; }
+  .gh-commit {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 16px 0;
+  }
+  .gh-commit .when { font-size: 10px; }
+  .gh-commit .msg { font-size: 14px; }
+  .gh-commit .repo { justify-self: start; font-size: 10px; }
+
+  /* ── RESUME ── */
+  .resume { padding: 80px 18px 100px; }
+  .resume-grid { grid-template-columns: 1fr; gap: 32px; }
+  .resume-left h2 { font-size: clamp(44px, 10vw, 64px); }
+  .resume-left p { font-size: 15px; }
+  .resume-viewer { height: 520px; }
+  .resume-actions { max-width: none; }
+  .btn-primary, .btn-secondary { padding: 16px 22px; font-size: 12px; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 80px 18px 60px; }
+  .contact h2 { font-size: clamp(56px, 14vw, 96px) !important; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; }
+  .contact-info p { font-size: 15px; }
+  .contact-link { font-size: 18px; padding: 16px 0; }
+  .contact-form { padding: 22px 18px; }
+  .cf-row input { font-size: 18px; }
+  .cf-row textarea { font-size: 15px; }
+  .cf-submit { padding: 16px 20px; font-size: 11px; }
+
+  /* footer watermark */
+  .footer-big {
+    font-size: clamp(48px, 18vw, 140px) !important;
+    margin-top: 40px;
+  }
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 10px;
+    padding-top: 20px;
+  }
+
+  /* ── HOME INDEX ── */
+  .home-index { padding: 60px 18px 100px; }
+  .home-index-head { margin-bottom: 40px; }
+  .home-index-head h2 { font-size: clamp(48px, 12vw, 80px); }
+  .home-index-head p { font-size: 17px; }
+  .home-index-grid { grid-template-columns: 1fr; }
+  .home-index-card {
+    min-height: 160px;
+    padding: 28px 22px;
+  }
+  .home-index-card .hc-title { font-size: 40px; margin-top: 16px; }
+  .home-index-card .hc-sub { font-size: 15px; }
+
+  /* ── CHATBOT ── */
+  .sidd-fab {
+    right: 14px !important;
+    bottom: 14px !important;
+    padding: 12px 18px !important;
+    font-size: 11px !important;
+  }
+  .sidd-chat {
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 70px !important;
+    width: auto !important;
+    max-height: 75vh !important;
+  }
+}
+
+/* ── SMALL MOBILE (≤480) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .nav { padding: 12px 14px; }
+  .nav-logo { font-size: 18px; }
+
+  .hero { padding: 14px 14px 28px; }
+  .hero-name { font-size: clamp(46px, 17vw, 80px); }
+  .hero-lede { font-size: 16px; }
+
+  .about, .experience, .projects-head, .tools, .github, .resume, .contact {
+    padding-left: 14px; padding-right: 14px;
+  }
+  .home-index { padding: 48px 14px 80px; }
+  .projects-head { padding: 0 14px; }
+  .proj-info, .proj-row.reverse .proj-info { padding: 32px 14px 16px; }
+  .proj-visual { padding: 0 14px 40px; height: 40vh; min-height: 260px; }
+
+  .about-stats { grid-template-columns: 1fr; gap: 14px; }
+  .about-stats .stat { display: flex; align-items: baseline; gap: 14px; }
+
+  .resume-viewer { height: 440px; }
+
+  .contact-link { font-size: 16px; }
+  .footer-big { font-size: clamp(42px, 17vw, 100px) !important; margin-top: 32px; }
+}
+
+/* ── DESKTOP: hide burger ─────────────────────────────────── */
+@media (min-width: 769px) {
+  .nav-burger { display: none !important; }
+}
+
+/* touch targets — make all interactive elements meet 44px */
+@media (max-width: 768px) and (pointer: coarse) {
+  a, button, .tool-pill, .contact-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-links a { min-height: 48px; }
+}
