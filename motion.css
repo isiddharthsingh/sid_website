@@ -1,0 +1,377 @@
+/* ────────────────────────────────────────────────────
+   motion.css — the lean 2026 motion stack
+   • Lenis        → buttery momentum scroll (global)
+   • CSS keyframe entry animations → page-level entrance
+   • Reveal/Stagger IO → element-level reveals on scroll
+   • HeroOrb SVG + lottie-web → hero motion piece
+   ──────────────────────────────────────────────────── */
+
+:root {
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ───────── PAGE-LEVEL entrance (every route change) ─────────
+   The .route-fade wrapper uses key={route}, so children
+   remount on every navigation and the animation fires fresh.   */
+.route-fade > * {
+  animation: pageIn 0.7s var(--ease-out-soft) both;
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+/* ───────── HERO entrance — staggered cascade ─────────
+   Gated on .app-revealed so the cascade fires as the preloader
+   curtain lifts, not behind it. */
+html.app-revealed .hero-eyebrow      { animation: heroIn 0.9s var(--ease-out-quart) 0.05s both; }
+html.app-revealed .hero-rule.top     { animation: heroSlide 0.9s var(--ease-out-quart) 0.10s both; }
+html.app-revealed .hero-rule.mid     { animation: heroRule 0.9s var(--ease-out-quart) 0.55s both; }
+html.app-revealed .hero-lede         { animation: heroIn 0.9s var(--ease-out-quart) 0.62s both; }
+html.app-revealed .hero-rule.bottom  { animation: heroIn 0.9s var(--ease-out-quart) 0.74s both; }
+html.app-revealed .hero-orb          { animation: heroOrbIn 1.6s var(--ease-out-quart) both; }
+/* before reveal: hold the hero hidden so nothing flashes under the curtain */
+html:not(.app-revealed) .hero-eyebrow,
+html:not(.app-revealed) .hero-rule,
+html:not(.app-revealed) .hero-lede,
+html:not(.app-revealed) .hero-orb { opacity: 0; }
+
+/* ───────── HERO NAME — per-letter mask reveal ───────── */
+.hero-name.split .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;   /* room for italic descenders inside the mask */
+  margin-bottom: -0.12em;
+}
+.hero-name.split .char {
+  display: inline-block;
+  transform: translateY(118%);
+  will-change: transform;
+}
+.hero-name.split .char:empty { width: 0.001px; }   /* keep spaces measurable */
+html.app-revealed .hero-name.split .char {
+  animation: charRise 0.92s var(--ease-out-quart) both;
+  animation-delay: calc(0.04s + var(--li) * 0.045s);
+}
+@keyframes charRise {
+  from { transform: translateY(118%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroSlide {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroName {
+  from { opacity: 0; transform: translateY(48px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
+@keyframes heroRule {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+@keyframes heroOrbIn {
+  from { opacity: 0; transform: scale(0.6) rotate(-30deg); }
+  to   { opacity: 1; transform: scale(1)   rotate(0); }
+}
+
+/* ───────── SECTION HEADERS entrance ───────── */
+.experience-head h2,
+.projects-head h2,
+.tools-head h2,
+.gh-head h2,
+.resume-left h2,
+.contact h2,
+.home-index-head h2 {
+  animation: sectionHeadIn 1s var(--ease-out-quart) 0.1s both;
+}
+.section-marker {
+  animation: sectionMarkerIn 0.9s var(--ease-out-quart) both;
+}
+@keyframes sectionHeadIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes sectionMarkerIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ───────── JS-driven reveals (Reveal / Stagger components) ───────── */
+[data-motion="reveal"] {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+  transition:
+    opacity 0.9s var(--ease-out-quart),
+    transform 0.9s var(--ease-out-quart);
+}
+[data-motion="reveal"].is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-motion="fade"] {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+[data-motion="fade"].is-in { opacity: 1; }
+
+[data-motion="stagger"] > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease-out-quart),
+    transform 0.8s var(--ease-out-quart);
+}
+[data-motion="stagger"].is-in > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(60ms * var(--i, 0));
+}
+
+/* ───────── HERO ORB — the "Lottie/Rive" piece ─────────
+   Pure SVG abstract geometric loop. A real Lottie .json
+   dropped at assets/hero.lottie.json (or via
+   window.heroLottie.load(url)) overlays on top.
+   ──────────────────────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.hero-orb-inner {
+  position: relative;
+  width: min(80vmin, 880px);
+  height: min(80vmin, 880px);
+  display: grid;
+  place-items: center;
+  will-change: transform;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hero-orb svg.orb-svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  transition: opacity 0.8s ease;
+}
+.hero-orb .orb-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: orbSpin 22s linear infinite;
+}
+.hero-orb .orb-ring.r2 { animation-duration: 16s; animation-direction: reverse; }
+.hero-orb .orb-ring.r3 { animation-duration: 34s; }
+.hero-orb .orb-ring.r4 { animation-duration: 12s; animation-direction: reverse; }
+.hero-orb .orb-ring.r5 { animation-duration: 28s; }
+
+.hero-orb .orb-bloom {
+  animation: orbBreathe 4s ease-in-out infinite alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.hero-orb .orb-arc {
+  animation: orbArc 4s linear infinite;
+}
+.hero-orb .orb-pulse {
+  animation: orbPulse 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.hero-orb .orb-satellite {
+  filter: drop-shadow(0 0 6px var(--clay));
+}
+
+@keyframes orbSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes orbBreathe {
+  0%   { opacity: 0.35; transform: scale(0.94); }
+  100% { opacity: 0.85; transform: scale(1.08); }
+}
+@keyframes orbArc {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -120; }
+}
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.4; r: 3; }
+  50%      { opacity: 1;   r: 5; }
+}
+
+.hero { position: relative; isolation: isolate; }
+.hero > .hero-rule,
+.hero > .hero-stage { position: relative; z-index: 2; }
+
+.hero-orb .hero-lottie {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-orb .hero-lottie.loaded { opacity: 1; }
+.hero-orb .hero-lottie.loaded ~ svg.orb-svg { opacity: 0.18; }
+.hero-orb .hero-lottie > * { width: min(70vmin, 720px); height: min(70vmin, 720px); }
+
+/* ───────── Reduce motion: kill everything ───────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-motion]      { opacity: 1 !important; transform: none !important; }
+  [data-motion] > *  { opacity: 1 !important; transform: none !important; }
+  .hero-name.split .char { transform: none !important; }
+  .hero-eyebrow, .hero-rule, .hero-lede, .hero-orb { opacity: 1 !important; }
+  #preloader { display: none !important; }
+  .hero-orb { display: none; }
+}
+
+/* ───────── Lenis hooks ───────── */
+html.lenis-smooth { scroll-behavior: auto; }
+html.lenis-stopped, html.lenis-stopped body { overflow: hidden; }
+
+/* ───────── Scroll progress bar (Lenis-driven) ───────── */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--clay);
+  z-index: 999;
+  transition: width 0.12s linear;
+  box-shadow: 0 0 12px var(--clay);
+  pointer-events: none;
+}
+
+/* ───────── Magnetic hover (nav links) ───────── */
+.nav-links a {
+  transition: transform 0.5s var(--ease-out-soft), color 0.3s;
+  display: inline-block;
+}
+.nav-links a:hover {
+  transform: translateY(-2px);
+}
+
+/* ───────── Lift on hover (cards) ───────── */
+.home-index-card,
+.proj-card,
+.tool-cell {
+  transition: transform 0.5s var(--ease-out-soft),
+              box-shadow 0.5s var(--ease-out-soft),
+              border-color 0.3s, background 0.3s;
+}
+.home-index-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ───────── Pointer 3D tilt (cards) ─────────
+   While the JS tilt drives transform every frame, drop transform from
+   the CSS transition so the two don't double-smooth into lag. */
+.home-index-grid,
+.proj-grid { perspective: 1100px; }
+
+.home-index-card.is-tilt,
+.proj-card.is-tilt {
+  transition: box-shadow 0.5s var(--ease-out-soft),
+              border-color 0.3s, background 0.3s;
+}
+
+/* ───────── Magnetic elements ─────────
+   rAF eases the transform; we only need a graceful spring-back
+   transition when the cursor leaves (no .is-magnet class). */
+.contact-link,
+.sidd-fab,
+[data-magnetic] {
+  transition: transform 0.45s var(--ease-out-quart), color 0.3s;
+  will-change: transform;
+}
+.contact-link.is-magnet,
+.sidd-fab.is-magnet,
+[data-magnetic].is-magnet {
+  transition: color 0.3s;
+}
+
+/* ───────── Preloader ───────── */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  transition: transform 0.85s var(--ease-out-quart), opacity 0.6s ease;
+  will-change: transform;
+}
+#preloader.done {
+  transform: translateY(-101%);
+  opacity: 1;
+  pointer-events: none;
+}
+.pre-inner {
+  width: min(86vw, 560px);
+  text-align: left;
+}
+.pre-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: preFade 0.7s var(--ease-out-quart) 0.05s forwards;
+}
+.pre-name {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-size: clamp(40px, 7vw, 76px);
+  color: var(--ink);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: preFade 0.8s var(--ease-out-quart) 0.14s forwards;
+}
+.pre-name .it { font-style: italic; color: var(--clay); }
+.pre-bar {
+  position: relative;
+  height: 2px;
+  width: 100%;
+  background: var(--line);
+  overflow: hidden;
+  opacity: 0;
+  animation: preFade 0.8s var(--ease-out-quart) 0.24s forwards;
+}
+.pre-bar > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: var(--clay);
+  box-shadow: 0 0 12px var(--clay);
+  transition: width 0.18s var(--ease-out-quart);
+}
+.pre-pct {
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--ink-dim);
+  opacity: 0;
+  animation: preFade 0.8s var(--ease-out-quart) 0.3s forwards;
+}
+.pre-pct-sym { color: var(--clay); margin-left: 1px; }
+@keyframes preFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
