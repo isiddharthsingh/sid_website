@@ -29,23 +29,31 @@
   .page { padding-top: 64px; }
 
   /* ── NAV: hamburger drawer ── */
+  /* one row: logo | theme+clock | burger (links leave the flow) */
   .nav {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+    column-gap: 10px;
     padding: 14px 18px;
   }
   .nav-logo { font-size: 20px; }
   .nav-clock { display: none; }
+  .nav-right { gap: 10px; }
+  /* .nav has backdrop-filter, so fixed children position against it —
+     top:100% pins the drawer to the nav's bottom edge at any height */
   .nav-links {
     display: none;
     position: fixed;
-    top: 56px; left: 0; right: 0;
+    top: 100%; left: 0; right: 0;
+    /* desktop sets justify-self:center, which makes this fixed grid child
+       shrink-to-fit — stretch it back to full width */
+    justify-self: stretch;
     background: var(--bg);
     flex-direction: column;
     gap: 0;
     padding: 12px 0 24px;
     border-bottom: 1px solid var(--line);
     box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    max-height: calc(100vh - 56px);
+    max-height: calc(100vh - 64px);
     overflow-y: auto;
     z-index: 99;
   }
@@ -110,8 +118,10 @@
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .about-headline { font-size: clamp(40px, 9vw, 64px) !important; }
   .about-body { font-size: 16px; }
-  .about-stats { grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .about-stats .stat .num { font-size: 36px; }
+  .about-stats { grid-template-columns: 1fr; gap: 20px; }
+  .about-stats .stat { display: flex; align-items: baseline; gap: 18px; }
+  .about-stats .stat .num { font-size: 44px; min-width: 84px; }
+  .about-stats .stat .lbl { max-width: none; margin-top: 0; }
 
   /* ── EXPERIENCE ── */
   .experience { padding: 80px 18px 100px; }
@@ -141,8 +151,14 @@
     margin-bottom: 16px;
   }
   .exp-card-title .exp-company { font-size: clamp(28px, 7vw, 40px); }
-  .exp-impact { grid-template-columns: 1fr; gap: 12px; }
-  .exp-impact .tile { padding: 16px; }
+  /* metrics stack vertically; keep the 1px-gap hairline-divider look */
+  .exp-impact { grid-template-columns: 1fr; }
+  .exp-metric { padding: 18px 16px; }
+  .exp-metric-num { font-size: 44px; }
+  /* grid children default to min-width:auto and can blow past the
+     viewport — allow them to shrink */
+  .exp-shell, .exp-shell > *, .exp-list, .exp-card, .exp-card > *,
+  .exp-card-head > *, .exp-detail-grid > * { min-width: 0; }
   .exp-detail-grid { grid-template-columns: 1fr; gap: 16px; }
   .exp-stack { grid-template-columns: 1fr; gap: 8px; }
 
@@ -278,8 +294,8 @@
   .proj-info, .proj-row.reverse .proj-info { padding: 32px 14px 16px; }
   .proj-visual { padding: 0 14px 40px; height: 40vh; min-height: 260px; }
 
-  .about-stats { grid-template-columns: 1fr; gap: 14px; }
-  .about-stats .stat { display: flex; align-items: baseline; gap: 14px; }
+  .about-stats { gap: 16px; }
+  .about-stats .stat .num { font-size: 38px; min-width: 72px; }
 
   .resume-viewer { height: 440px; }
 
@@ -290,6 +306,13 @@
 /* ── DESKTOP: hide burger ─────────────────────────────────── */
 @media (min-width: 769px) {
   .nav-burger { display: none !important; }
+}
+
+/* ── TOUCH / SMALL SCREENS: no cursor-follow glow ───────────── */
+/* taps fire synthetic mousemove events, which strand the 600px
+   glow as a bright blob in the last-touched corner */
+@media (max-width: 768px), (hover: none) {
+  #cursor-glow { display: none !important; }
 }
 
 /* touch targets — make all interactive elements meet 44px */

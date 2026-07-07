@@ -500,29 +500,9 @@
   .proj-detail { padding: 100px 20px 100px; }
 }
 
-/* Theme toggle in nav */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.nav-theme {
-  display: inline-grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  color: var(--ink);
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.nav-theme:hover {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
-}
+/* Theme toggle styling lives in styles-extras.css (single source) —
+   a duplicate block here used to apply a solid ink :hover fill that
+   stuck after taps on touch screens */
 @media (max-width: 760px) {
   .nav-right .nav-clock { display: none; }
 }

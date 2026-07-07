@@ -309,9 +309,9 @@ function About() {
             </p>
           </div>
           <div className="about-stats">
-            <div className="stat"><div className="num"><span className="it">4+</span></div><div className="lbl">Years building<br/>in production</div></div>
-            <div className="stat"><div className="num"><span className="it">15+</span></div><div className="lbl">Systems shipped<br/>across 6 companies</div></div>
-            <div className="stat"><div className="num"><span className="it">5</span></div><div className="lbl">Cloud providers,<br/>one connector layer</div></div>
+            <div className="stat"><div className="num"><span className="it">4+</span></div><div className="lbl">Years building in production</div></div>
+            <div className="stat"><div className="num"><span className="it">15+</span></div><div className="lbl">Systems shipped across 6 companies</div></div>
+            <div className="stat"><div className="num"><span className="it">5</span></div><div className="lbl">Cloud providers, one connector layer</div></div>
           </div>
         </div>
       </div>

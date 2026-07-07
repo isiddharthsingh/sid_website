@@ -146,7 +146,7 @@ function ExperienceItem({ item, idx, isOpen, onToggle, registerRef }) {
 
       <div
         className="exp-impact"
-        style={{ gridTemplateColumns: `repeat(${item.impact.length}, 1fr)` }}
+        style={{ '--impact-cols': item.impact.length }}
       >
         {item.impact.map((m, i) => (
           <div className="exp-metric" key={i}>
