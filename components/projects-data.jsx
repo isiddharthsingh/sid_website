@@ -96,6 +96,25 @@ const PROJECTS = [
     ],
     accent: 'vault',
   },
+  {
+    slug: 'isac-usa',
+    num: '06',
+    title: 'ISAC',
+    titleIt: 'USA',
+    year: '2025',
+    role: 'Client build',
+    category: 'Web · Platform',
+    summary: 'Community platform serving thousands of international students.',
+    desc: 'Central hub for international students in the US — verified WhatsApp group directories, webinar scheduling, volunteer onboarding, and success stories. Mobile-first and accessible, with an architecture built to hold thousands of concurrent visitors without downtime.',
+    stack: ['Responsive UI', 'Accessibility', 'Real-time updates', 'Secure forms'],
+    links: { demo: 'https://www.isac-usa.org/' },
+    highlights: [
+      'Designed and built the ISAC website as a central hub supporting thousands of concurrent visitors with fast load times.',
+      'Implemented a mobile-first, accessible UI spanning verified WhatsApp group directories, webinar scheduling, and volunteer onboarding.',
+      'Optimized backend workflows for real-time group updates and secure form submissions.',
+    ],
+    accent: 'globe',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
