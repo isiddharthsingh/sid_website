@@ -78,6 +78,24 @@ const PROJECTS = [
     ],
     accent: 'shield',
   },
+  {
+    slug: 'futeur-vault',
+    num: '05',
+    title: 'Futeur',
+    titleIt: 'Vault',
+    year: '2025',
+    role: 'Futeur AI',
+    category: 'Security · Product',
+    summary: 'Team password manager with sharing, revocation, and alerts.',
+    desc: 'Web-based password manager for individuals and teams. Category-based storage, visibility toggles, quick copy, and last-updated tracking, plus teammate sharing with per-credential notes, instant revocation, and email alerts. React and TypeScript on Supabase, behind protected routes.',
+    stack: ['React', 'TypeScript', 'Supabase', 'Tailwind', 'shadcn/ui', 'EmailJS'],
+    links: { github: 'https://github.com/isiddharthsingh/futeur-wallet', demo: 'https://www.futeursecure.com/vault' },
+    highlights: [
+      'Built a secure vault UI with protected routes, category-based storage, visibility toggles, and last-updated tracking.',
+      'Shipped credential sharing with teammate notes, anytime revocation, and EmailJS-powered alerts.',
+    ],
+    accent: 'vault',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
