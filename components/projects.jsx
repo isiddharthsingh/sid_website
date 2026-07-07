@@ -1,6 +1,10 @@
 // Projects index page, a gallery grid that scales to 20+ projects
 // with category filtering and search.
 
+// Filter chips group by the part before the '·' so the card labels stay
+// specific ('AI · Research') while the toolbar stays small ('AI').
+const catGroup = (c) => (c || '').split('·')[0].trim();
+
 function Projects() {
   const ref = useReveal();
   const [filter, setFilter] = useState('All');
@@ -8,12 +12,12 @@ function Projects() {
 
   const categories = React.useMemo(() => {
     const set = new Set(['All']);
-    PROJECTS.forEach(p => set.add(p.category));
+    PROJECTS.forEach(p => set.add(catGroup(p.category)));
     return [...set];
   }, []);
 
   const filtered = PROJECTS.filter(p => {
-    const okCat = filter === 'All' || p.category === filter;
+    const okCat = filter === 'All' || catGroup(p.category) === filter;
     const q = query.trim().toLowerCase();
     const okQ = !q || (
       (p.title + ' ' + p.titleIt + ' ' + p.summary + ' ' + p.desc + ' ' + (p.stack || []).join(' '))
@@ -42,7 +46,7 @@ function Projects() {
             >
               {c}
               <span className="proj-filter-count">
-                {c === 'All' ? PROJECTS.length : PROJECTS.filter(p => p.category === c).length}
+                {c === 'All' ? PROJECTS.length : PROJECTS.filter(p => catGroup(p.category) === c).length}
               </span>
             </button>
           ))}
