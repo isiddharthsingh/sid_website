@@ -223,6 +223,24 @@ const PROJECTS = [
     ],
     accent: 'resume',
   },
+  {
+    slug: 'tubegenie',
+    num: '13',
+    title: 'Tube',
+    titleIt: 'Genie',
+    year: '2024',
+    role: 'Solo build',
+    category: 'AI · RAG',
+    summary: 'Ask questions of any YouTube video, answered by GPT-4-turbo.',
+    desc: 'Retrieval-augmented Q&A over YouTube content. Embedchain ingests the video, ChromaDB stores the vectors, and GPT-4-turbo answers through an interactive Streamlit UI — with cleanup routines keeping temporary storage lean.',
+    stack: ['GPT-4-turbo', 'Embedchain', 'ChromaDB', 'Streamlit', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/TubeGenie' },
+    highlights: [
+      'Built ingestion with Embedchain and vector retrieval over ChromaDB for fast, grounded answers about video content.',
+      'Interactive Streamlit interface with an efficient cleanup mechanism for temporary data storage.',
+    ],
+    accent: 'video',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
