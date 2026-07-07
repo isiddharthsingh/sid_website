@@ -205,6 +205,24 @@ const PROJECTS = [
     ],
     accent: 'buckets',
   },
+  {
+    slug: 'resume-maestro',
+    num: '12',
+    title: 'Resume',
+    titleIt: 'Maestro',
+    year: '2024',
+    role: 'Solo build',
+    category: 'AI · Tools',
+    summary: 'GPT-4 resume optimizer with LaTeX-quality PDF output.',
+    desc: 'Upload a resume, paste a job description, download a tailored PDF. GPT-4 rewrites content against the posting, PyMuPDF handles text extraction, and robust LaTeX templates keep the output typographically sharp. Streamlit front, FastAPI back, Docker throughout.',
+    stack: ['GPT-4', 'FastAPI', 'Streamlit', 'LaTeX', 'PyMuPDF', 'Docker'],
+    links: { github: 'https://github.com/isiddharthsingh/Resume-Maestro' },
+    highlights: [
+      'Engineered a Streamlit and FastAPI pipeline that optimizes resume content against job descriptions using GPT-4.',
+      'Produced LaTeX and PDF outputs with robust templates and real-time downloads, containerized with Docker.',
+    ],
+    accent: 'resume',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
