@@ -52,7 +52,7 @@ const PROJECTS = [
     summary: 'Serverless NLP chatbot for restaurant recommendations.',
     desc: 'NLP-driven serverless chatbot for restaurant recs. Lex + Lambda + API Gateway on the front, with SQS, ElasticSearch, DynamoDB, and SES orchestrated by CloudWatch on the back.',
     stack: ['AWS Lex', 'Lambda', 'API Gateway', 'DynamoDB', 'ElasticSearch', 'SES', 'SQS'],
-    links: { github: 'https://github.com/isiddharthsingh' },
+    links: { github: 'https://github.com/isiddharthsingh/Serverless-Dining-Concierge-Chatbot' },
     highlights: [
       'Designed and deployed a serverless, microservices-based Dining Concierge chatbot using AWS Lex, Lambda, API Gateway, and S3, leveraging NLP for personalized restaurant recommendations.',
       'Automated restaurant suggestion workflows by 50% via SQS, ElasticSearch, DynamoDB, and SES, orchestrated with CloudWatch events.',
