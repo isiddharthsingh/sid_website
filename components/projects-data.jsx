@@ -133,6 +133,24 @@ const PROJECTS = [
     ],
     accent: 'dag',
   },
+  {
+    slug: 'pygpt2',
+    num: '08',
+    title: 'PyGPT',
+    titleIt: '2',
+    year: '2024',
+    role: 'Solo build',
+    category: 'AI · Research',
+    summary: 'GPT-2 (124M) reimplemented and trained from scratch in PyTorch.',
+    desc: 'Faithful PyTorch reimplementation of GPT-2, trained from scratch on FineWeb-Edu. Covers tokenization, architecture, single-GPU and distributed training loops, zero-shot HellaSwag evaluation, and sampling — a clear, modular codebase for understanding transformer internals.',
+    stack: ['PyTorch', 'DDP', 'FineWeb-Edu', 'HellaSwag', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/PyGPT2' },
+    highlights: [
+      'Trained the 124M-parameter model on FineWeb-Edu with both single-GPU and distributed (DDP) setups.',
+      'Evaluated zero-shot performance on HellaSwag and built clean generation scripts for text sampling.',
+    ],
+    accent: 'loss',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
