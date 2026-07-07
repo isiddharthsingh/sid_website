@@ -15,7 +15,7 @@ const PROJECTS = [
     summary: 'Save links from your phone, ask questions about them later.',
     desc: "A personal second brain. Share any URL from your phone, an Instagram reel, a YouTube video, a tweet, an article, and the backend pulls out the content: transcripts via yt-dlp, article text via trafilatura, vision descriptions for images. Claude writes a summary, tags it, and picks out the people and topics mentioned, then Voyage AI embeds everything into pgvector. Search runs dense vectors and BM25 full text side by side, merges them with Reciprocal Rank Fusion, reranks, and has Claude answer with citations back to the original sources. Each new item also gets folded into a wiki of topic pages that the AI patches in place instead of regenerating. An Expo app on iOS and Android covers the share sheet, inbox, wiki, and ask screens.",
     stack: ['FastAPI', 'Postgres', 'pgvector', 'Claude', 'Voyage AI', 'Expo', 'React Native'],
-    links: {},
+    links: { github: 'https://github.com/isiddharthsingh/memory-dump' },
     highlights: [
       'Built the ingestion pipeline as arq workers over Redis, with per-source extractors for YouTube transcripts, article text, tweets, and image captions, feeding Claude analysis and Voyage embeddings into Postgres 16 with pgvector and HNSW indexing.',
       'Wrote the hybrid retrieval path: voyage-3-large dense search plus tsvector BM25, merged with Reciprocal Rank Fusion and reranked with rerank-2.5 before Claude answers with citations.',
@@ -34,7 +34,7 @@ const PROJECTS = [
     summary: 'iOS app that auto-logs Apple Pay taps and categorizes them with AI.',
     desc: "Apple has no public API for reading Apple Pay history. PayTrack gets around that with the iOS 17 Shortcuts Transaction Trigger, which fires on every NFC tap and passes the amount, merchant, and card name into the app. Claude categorizes each transaction, falling back to a keyword engine with 50+ merchant rules when no API key is set, and once a merchant is categorized it stays cached. SwiftData and CloudKit sync across devices, Swift Charts draws the daily, weekly, and monthly breakdowns, and budgets get AI suggestions based on three months of history. There is also a chat assistant for asking about your spending in plain English. The API key sits in the iOS Keychain and nothing leaves the device except the direct Claude API calls.",
     stack: ['SwiftUI', 'SwiftData', 'CloudKit', 'Claude API', 'Swift Charts', 'App Intents'],
-    links: {},
+    links: { github: 'https://github.com/isiddharthsingh/apple-pay-tracker' },
     highlights: [
       'Auto-logs Apple Pay NFC transactions through the Shortcuts Transaction Trigger, with a guided setup walkthrough in the app so there is no manual shortcut authoring.',
       'Runs categorization, spending insights, budget suggestions, and chat through a protocol-based AI layer, with a 50+ merchant-rule keyword engine as the fallback and per-merchant caching.',
