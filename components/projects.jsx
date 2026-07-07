@@ -116,7 +116,10 @@ function ProjectCard({ project, index }) {
 }
 
 // Tiny accent thumbnail per project, abstract, no faked screenshots.
+// Newer accents live in the PROJECT_THUMBS registry (projects-thumbs.jsx).
 function ProjectThumb({ accent }) {
+  const Registered = window.PROJECT_THUMBS && window.PROJECT_THUMBS[accent];
+  if (Registered) return <Registered />;
   if (accent === 'terminal') {
     return (
       <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
