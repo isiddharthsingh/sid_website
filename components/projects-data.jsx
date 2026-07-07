@@ -151,6 +151,24 @@ const PROJECTS = [
     ],
     accent: 'loss',
   },
+  {
+    slug: 'gpt-transformer',
+    num: '09',
+    title: 'GPT',
+    titleIt: 'Transformer',
+    year: '2024',
+    role: 'Solo build',
+    category: 'AI · Research',
+    summary: 'Character-level transformer language model built from scratch.',
+    desc: 'Character-level language model implemented from first principles after "Attention Is All You Need". Multi-head self-attention, positional encoding, and autoregressive generation, written in PyTorch and optimized for GPU acceleration.',
+    stack: ['PyTorch', 'Self-attention', 'CUDA', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/GPT_Transformer' },
+    highlights: [
+      'Implemented multi-head attention, positional encoding, and the full transformer block stack from scratch.',
+      'Generates coherent text by capturing short- and long-range dependencies at the character level.',
+    ],
+    accent: 'attention',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
