@@ -169,6 +169,24 @@ const PROJECTS = [
     ],
     accent: 'attention',
   },
+  {
+    slug: 'harmony-ai',
+    num: '10',
+    title: 'Harmony',
+    titleIt: 'AI',
+    year: '2024',
+    role: 'Team build',
+    category: 'AI · Agents',
+    summary: 'Slack-native assistant unifying Trello, Gmail, and Calendar.',
+    desc: 'AI productivity assistant that lives in Slack. Creates and updates Trello tasks and checklists by command, syncs due dates to Google Calendar, and surfaces unread Gmail directly in channels — one interface, four tools, no context switching.',
+    stack: ['Slack API', 'Trello API', 'Gmail API', 'Google Calendar API', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/mAIgic-nyu/tree/hw3_submission' },
+    highlights: [
+      'Command-based Trello task and checklist management from inside Slack, with due dates auto-synced to Google Calendar.',
+      'Fetches unread Gmail and posts it to Slack channels so important messages surface in real time.',
+    ],
+    accent: 'hub',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
