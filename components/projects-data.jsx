@@ -241,6 +241,24 @@ const PROJECTS = [
     ],
     accent: 'video',
   },
+  {
+    slug: 'llamalingo',
+    num: '14',
+    title: 'Llama',
+    titleIt: 'Lingo',
+    year: '2024',
+    role: 'Solo build',
+    category: 'AI · Conversational',
+    summary: 'Llama-3 chatbot served entirely from a local machine.',
+    desc: 'Chatbot on Llama-3, served through LM Studio as an OpenAI-compatible API on a local server — no cloud dependency. Streamlit front end with dynamic chat-history management.',
+    stack: ['Llama-3', 'LM Studio', 'Streamlit', 'OpenAI API', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/LlamaLingo' },
+    highlights: [
+      'Served Llama-3 locally through LM Studio as an OpenAI-compatible API for private, scalable inference.',
+      'Dynamic chat-history management behind a clean Streamlit interface.',
+    ],
+    accent: 'localchat',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
