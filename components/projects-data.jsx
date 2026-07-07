@@ -277,6 +277,24 @@ const PROJECTS = [
     ],
     accent: 'esg',
   },
+  {
+    slug: 'typeninja',
+    num: '16',
+    title: 'Type',
+    titleIt: 'Ninja',
+    year: '2024',
+    role: 'Solo build',
+    category: 'Web · Game',
+    summary: 'A typing game that takes away your backspace.',
+    desc: 'Typing game with live WPM, accuracy, and timing across 20 randomized sentences. Backspace is disabled by design — accuracy is the game. Clean, responsive, playable on anything.',
+    stack: ['React', 'JavaScript', 'HTML', 'CSS'],
+    links: { github: 'https://github.com/isiddharthsingh/TypeNinja' },
+    highlights: [
+      'Real-time tracking of typing time, accuracy, and words per minute.',
+      'Disabled backspace to force focused, accurate typing across randomized sentences.',
+    ],
+    accent: 'keys',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
