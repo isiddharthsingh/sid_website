@@ -321,6 +321,15 @@ function ProjectFeaturedViz({ slug }) {
   if (slug === 'cryptostream-ai') return <VizTerminal />;
   if (slug === 'taleweaver') return <VizStory />;
   if (slug === 'dining-concierge') return <VizDining />;
+  // projects without a bespoke animated viz reuse their thumb art, scaled up
+  const project = PROJECTS.find(p => p.slug === slug);
+  if (project && window.PROJECT_THUMBS && window.PROJECT_THUMBS[project.accent]) {
+    return (
+      <div className="proj-hero-art">
+        <ProjectThumb accent={project.accent} />
+      </div>
+    );
+  }
   // generic placeholder for future projects
   return (
     <div className="proj-generic-hero">
