@@ -378,6 +378,167 @@ function ThumbEnergy() {
   );
 }
 
+// Voice Agent — caller waveform hitting the turn detector, agent replies
+function ThumbVoice() {
+  const inBars = [4, 9, 14, 18, 13, 17, 10, 14, 7, 3];
+  const outBars = [3, 7, 12, 16, 12, 8, 4];
+  return (
+    <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="130" fill="var(--bg-2)"/>
+      {inBars.map((h, i) => (
+        <rect key={i} x={22 + i * 6} y={54 - h / 2} width="3" height={h} rx="1.5" fill="currentColor" opacity="0.45"/>
+      ))}
+      <line x1="88" y1="36" x2="88" y2="72" stroke="var(--clay)" strokeWidth="1.2" strokeDasharray="3 3"/>
+      <text x="88" y="30" textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="6" fill="var(--clay)">end of turn</text>
+      <circle cx="112" cy="54" r="12" fill="var(--clay)"/>
+      <path d="M108 50 a5 5 0 0 1 8 0 M106 54 a7.5 7.5 0 0 1 12 0" fill="none" stroke="var(--bg)" strokeWidth="1.3" strokeLinecap="round"/>
+      <circle cx="112" cy="58" r="1.4" fill="var(--bg)"/>
+      {outBars.map((h, i) => (
+        <rect key={i} x={134 + i * 6} y={54 - h / 2} width="3" height={h} rx="1.5" fill="#7BA98A" opacity="0.85"/>
+      ))}
+      <g fontFamily="ui-monospace, monospace" fontSize="6" fill="currentColor" opacity="0.5">
+        <text x="22" y="84">verify_identity ✓</text>
+        <text x="22" y="94">get_plan_info ✓</text>
+        <text x="112" y="84">update_address ✓</text>
+        <text x="112" y="94">transfer: explicit only</text>
+      </g>
+      <text x="14" y="112" fontFamily="ui-monospace, monospace" fontSize="7" fill="currentColor" opacity="0.55">LIVEKIT · DEEPGRAM · LANGGRAPH</text>
+    </svg>
+  );
+}
+
+// Auto-Deploy — plain-English request compiled into live AWS infrastructure
+function ThumbDeploy() {
+  const stages = ['plan', 'tf', 'build'];
+  return (
+    <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="130" fill="var(--bg-2)"/>
+      <g transform="translate(16 22)">
+        <rect width="76" height="20" rx="4" fill="var(--bg)" stroke="currentColor" strokeOpacity="0.25"/>
+        <text x="7" y="13" fontFamily="ui-monospace, monospace" fontSize="6.5" fill="currentColor" opacity="0.7">"deploy flask</text>
+        <text x="7" y="34" fontFamily="ui-monospace, monospace" fontSize="6.5" fill="currentColor" opacity="0.7">+ postgres"</text>
+      </g>
+      <path d="M54 62 V74 Q54 80 60 80 H70" fill="none" stroke="currentColor" strokeOpacity="0.3"/>
+      {stages.map((s, i) => (
+        <g key={s} transform={`translate(${74 + i * 34} 72)`}>
+          <rect width="26" height="16" rx="3" fill="var(--bg)" stroke="currentColor" strokeOpacity="0.3"/>
+          <text x="13" y="11" textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="6" fill="currentColor" opacity="0.6">{s}</text>
+          <line x1="26" y1="8" x2="34" y2="8" stroke="currentColor" strokeOpacity="0.3"/>
+        </g>
+      ))}
+      <g transform="translate(140 18)">
+        <path d="M14 22 a10 10 0 0 1 1-20 a13 13 0 0 1 25 3 a8.5 8.5 0 0 1 -2 17 Z" fill="var(--bg)" stroke="var(--clay)" strokeWidth="1.4"/>
+        <circle cx="20" cy="12" r="2" fill="#7BA98A"/>
+      </g>
+      <text x="160" y="52" textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="6" fill="#7BA98A">live · https://…</text>
+      <g transform="translate(178 72)">
+        <rect width="16" height="16" rx="3" fill="var(--clay)"/>
+        <text x="8" y="11" textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="7" fill="var(--bg)">✓</text>
+      </g>
+      <text x="14" y="112" fontFamily="ui-monospace, monospace" fontSize="7" fill="currentColor" opacity="0.55">NL → TERRAFORM → AWS · LIVE URL</text>
+    </svg>
+  );
+}
+
+// Deep Research Enhancer — base run revisits pages, enhanced run skips them
+function ThumbResearch() {
+  const base = [0, 1, 2, 1, 3, 2, 4, 1, 5];
+  const enhanced = [0, 1, 2, 3, 4, 5];
+  return (
+    <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="130" fill="var(--bg-2)"/>
+      <text x="22" y="30" fontFamily="ui-monospace, monospace" fontSize="6.5" fill="currentColor" opacity="0.55">base</text>
+      <line x1="58" y1="38" x2="182" y2="38" stroke="currentColor" strokeOpacity="0.12"/>
+      {base.map((p, i) => {
+        const seen = base.indexOf(p) < i;
+        return (
+          <g key={i}>
+            {i > 0 && <line x1={62 + (i - 1) * 15} y1="38" x2={62 + i * 15} y2="38" stroke="currentColor" strokeOpacity="0.25"/>}
+            <circle cx={62 + i * 15} cy="38" r="4" fill={seen ? 'none' : 'var(--bg)'} stroke="currentColor" strokeOpacity={seen ? 0.3 : 0.5} strokeDasharray={seen ? '2 2' : 'none'}/>
+            {seen && <line x1={62 + i * 15 - 2.5} y1="35.5" x2={62 + i * 15 + 2.5} y2="40.5" stroke="currentColor" strokeOpacity="0.45"/>}
+          </g>
+        );
+      })}
+      <text x="22" y="72" fontFamily="ui-monospace, monospace" fontSize="6.5" fill="var(--clay)">+memory</text>
+      {enhanced.map((p, i) => (
+        <g key={i}>
+          {i > 0 && <line x1={62 + (i - 1) * 15} y1="80" x2={62 + i * 15} y2="80" stroke="var(--clay)" strokeOpacity="0.6"/>}
+          <circle cx={62 + i * 15} cy="80" r="4" fill="var(--clay)" opacity={0.55 + i * 0.075}/>
+        </g>
+      ))}
+      <path d="M62 84 Q 99 96 137 84" fill="none" stroke="#7BA98A" strokeWidth="0.9" strokeDasharray="3 2" opacity="0.8"/>
+      <text x="146" y="94" fontFamily="ui-monospace, monospace" fontSize="6" fill="#7BA98A">0 revisits</text>
+      <text x="14" y="112" fontFamily="ui-monospace, monospace" fontSize="7" fill="currentColor" opacity="0.55">MEMORY LAYER · PRE-RESEARCH · METRICS</text>
+    </svg>
+  );
+}
+
+// PayTrack — an NFC tap becoming a categorized transaction with a donut
+function ThumbPaytrack() {
+  return (
+    <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="130" fill="var(--bg-2)"/>
+      <g transform="translate(30 18)">
+        <rect width="40" height="76" rx="8" fill="var(--bg)" stroke="currentColor" strokeOpacity="0.35"/>
+        <line x1="14" y1="6" x2="26" y2="6" stroke="currentColor" strokeOpacity="0.3" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M46 18 a12 12 0 0 1 0 16 M52 12 a20 20 0 0 1 0 28" fill="none" stroke="var(--clay)" strokeWidth="1.3" strokeLinecap="round"/>
+        <rect x="7" y="26" width="26" height="17" rx="3" fill="var(--clay)" opacity="0.85"/>
+        <rect x="10" y="31" width="9" height="6" rx="1" fill="var(--bg)" opacity="0.85"/>
+        <rect x="7" y="52" width="26" height="2.4" fill="currentColor" opacity="0.25"/>
+        <rect x="7" y="59" width="18" height="2.4" fill="currentColor" opacity="0.25"/>
+      </g>
+      <g transform="translate(96 26)" fontFamily="ui-monospace, monospace">
+        <rect width="72" height="16" rx="3" fill="var(--bg)" stroke="currentColor" strokeOpacity="0.2"/>
+        <text x="6" y="10.5" fontSize="6.5" fill="currentColor" opacity="0.75">$4.80 · coffee</text>
+        <rect x="52" y="4" width="16" height="8" rx="2" fill="var(--clay)" opacity="0.3"/>
+        <text x="6" y="27" fontSize="6" fill="currentColor" opacity="0.45">→ Food &amp; Dining</text>
+      </g>
+      <g transform="translate(132 74)">
+        <circle r="15" fill="none" stroke="currentColor" strokeOpacity="0.15" strokeWidth="7"/>
+        <circle r="15" fill="none" stroke="var(--clay)" strokeWidth="7" strokeDasharray="38 94.2" transform="rotate(-90)"/>
+        <circle r="15" fill="none" stroke="#7BA98A" strokeWidth="7" strokeDasharray="24 94.2" strokeDashoffset="-38" transform="rotate(-90)"/>
+        <circle r="15" fill="none" stroke="#F7E2B5" strokeWidth="7" strokeDasharray="14 94.2" strokeDashoffset="-62" transform="rotate(-90)"/>
+      </g>
+      <text x="14" y="112" fontFamily="ui-monospace, monospace" fontSize="7" fill="currentColor" opacity="0.55">APPLE PAY · SHORTCUTS · CLAUDE</text>
+    </svg>
+  );
+}
+
+// memory-dump — shared links pouring into a vector store, cited answer out
+function ThumbMemory() {
+  const sources = [{ y: 26, l: '▶ reel' }, { y: 48, l: '¶ article' }, { y: 70, l: '@ tweet' }];
+  return (
+    <svg viewBox="0 0 200 130" className="thumb-svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="130" fill="var(--bg-2)"/>
+      {sources.map(s => (
+        <g key={s.l}>
+          <rect x="18" y={s.y - 8} width="40" height="14" rx="7" fill="var(--bg)" stroke="currentColor" strokeOpacity="0.25"/>
+          <text x="38" y={s.y + 2} textAnchor="middle" fontFamily="ui-monospace, monospace" fontSize="5.5" fill="currentColor" opacity="0.65">{s.l}</text>
+          <path d={`M58 ${s.y} C 74 ${s.y}, 76 48, 90 48`} fill="none" stroke="currentColor" strokeOpacity="0.3"/>
+        </g>
+      ))}
+      <g transform="translate(92 30)">
+        <ellipse cx="17" cy="4" rx="17" ry="5" fill="var(--bg)" stroke="var(--clay)" strokeWidth="1.2"/>
+        <path d="M0 4 V32 A17 5 0 0 0 34 32 V4" fill="var(--bg)" stroke="var(--clay)" strokeWidth="1.2"/>
+        <path d="M0 18 A17 5 0 0 0 34 18" fill="none" stroke="var(--clay)" strokeWidth="0.9" opacity="0.6"/>
+        {[[8, 12], [22, 10], [15, 26], [26, 24], [7, 27]].map(([x, y], i) => (
+          <circle key={i} cx={x} cy={y} r="1.3" fill="var(--clay)" opacity="0.8"/>
+        ))}
+      </g>
+      <path d="M126 48 H140" stroke="currentColor" strokeOpacity="0.3"/>
+      <g transform="translate(142 32)" fontFamily="ui-monospace, monospace">
+        <text fontSize="7" fill="var(--clay)">ask:</text>
+        <rect x="0" y="6" width="44" height="2.2" fill="currentColor" opacity="0.3"/>
+        <rect x="0" y="16" width="46" height="2.2" fill="currentColor" opacity="0.2"/>
+        <rect x="0" y="22" width="38" height="2.2" fill="currentColor" opacity="0.2"/>
+        <text x="0" y="36" fontSize="6" fill="#7BA98A">[1] [2] cited</text>
+      </g>
+      <text x="92" y="92" fontFamily="ui-monospace, monospace" fontSize="6" fill="currentColor" opacity="0.5">pgvector ∪ BM25 → rerank</text>
+      <text x="14" y="112" fontFamily="ui-monospace, monospace" fontSize="7" fill="currentColor" opacity="0.55">SHARE SHEET · HYBRID RAG · WIKI</text>
+    </svg>
+  );
+}
+
 const PROJECT_THUMBS = {
   shield: ThumbShield,
   vault: ThumbVault,
@@ -393,6 +554,11 @@ const PROJECT_THUMBS = {
   esg: ThumbEsg,
   keys: ThumbKeys,
   energy: ThumbEnergy,
+  voice: ThumbVoice,
+  deploy: ThumbDeploy,
+  research: ThumbResearch,
+  paytrack: ThumbPaytrack,
+  memory: ThumbMemory,
 };
 
 Object.assign(window, { PROJECT_THUMBS });
