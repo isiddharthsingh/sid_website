@@ -259,6 +259,24 @@ const PROJECTS = [
     ],
     accent: 'localchat',
   },
+  {
+    slug: 'ecostock',
+    num: '15',
+    title: 'Eco',
+    titleIt: 'Stock',
+    year: '2024',
+    role: 'Solo build',
+    category: 'Data · Forecasting',
+    summary: 'Stock forecasting driven by ESG metrics and sentiment.',
+    desc: 'Stock-price forecasting with ESG signals folded in. ARIMA, SMA, SARIMAX, VARMAX, and OLS models over Alpha Vantage data, enriched with news and social-media sentiment — VARMAX quantified the ESG impact at an optimal AIC of 1338.44.',
+    stack: ['Python', 'VARMAX', 'SARIMAX', 'ARIMA', 'Alpha Vantage'],
+    links: { github: 'https://github.com/isiddharthsingh/EcoStock-ESG-Driven-Market-Predictions' },
+    highlights: [
+      'Applied VARMAX to quantify the impact of ESG factors on stock prices, achieving an optimal AIC score of 1338.44.',
+      'Ran correlation analysis and time-series EDA linking sentiment scores to stock-market behavior.',
+    ],
+    accent: 'esg',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
