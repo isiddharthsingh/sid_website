@@ -295,6 +295,24 @@ const PROJECTS = [
     ],
     accent: 'keys',
   },
+  {
+    slug: 'shems',
+    num: '17',
+    title: 'Smart Home',
+    titleIt: 'Energy',
+    year: '2023',
+    role: 'Solo build',
+    category: 'Web · Full Stack',
+    summary: 'Smart-home dashboard for devices and energy analytics.',
+    desc: 'Smart Home Energy Management System — register devices, control them, and watch consumption analytics on dynamic charts. Node.js with hardened auth: pooled connections, hashed passwords, and protection against SQL injection and XSS in a multi-user environment.',
+    stack: ['Node.js', 'Bootstrap', 'SQL', 'JavaScript'],
+    links: { github: 'https://github.com/isiddharthsingh/Smart-Home-Energy-Management-System-SHEMS' },
+    highlights: [
+      'Full device lifecycle — add, list, remove — with energy-consumption analysis and graphical dashboards.',
+      'Hardened security: pooled connections, hashed passwords, and SQL-injection and XSS protections for concurrent multi-user access.',
+    ],
+    accent: 'energy',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
