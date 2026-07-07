@@ -75,7 +75,7 @@ function Contact() {
     <section className="contact" id="contact" data-screen-label="Contact">
       <div className="section-marker"><span className="num">07</span> Correspondence</div>
       <div className="contact-inner">
-        <h2 style={{ fontFamily: "\"Times New Roman\"" }}>Let's <span className="it">build</span><br />something <span className="it">considered.</span></h2>
+        <h2 style={{ fontFamily: "\"Times New Roman\"" }}>Let's <span className="it">build</span><br />something <span className="it">that lasts.</span></h2>
 
         <div className="contact-grid">
           <div className="contact-info">
@@ -156,11 +156,6 @@ function Contact() {
         </div>
 
         <div className="footer-big">Siddharth.</div>
-        <div className="footer">
-          <span>© 2026 Siddharth Singh · NYC</span>
-          <span>Set in Anthropic Serif &amp; JetBrains Mono</span>
-          <span>v2.0 / Anthropic edition</span>
-        </div>
       </div>
     </section>);
 
