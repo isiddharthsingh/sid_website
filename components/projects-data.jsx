@@ -187,6 +187,24 @@ const PROJECTS = [
     ],
     accent: 'hub',
   },
+  {
+    slug: 'hashtable-benchmark',
+    num: '11',
+    title: 'Hashtable',
+    titleIt: 'Benchmark',
+    year: '2024',
+    role: 'Solo build',
+    category: 'Systems · Concurrency',
+    summary: 'Measuring lock strategies on a multithreaded hash table.',
+    desc: 'A study of synchronization under contention. A lock-free baseline demonstrates lost updates from race conditions; per-bucket mutexes, reader–writer locks, and spinlocks each fix it at different costs. A driver sweeps thread counts and records insert and retrieve timings for comparison.',
+    stack: ['C', 'POSIX threads', 'Mutexes', 'RW locks', 'Spinlocks'],
+    links: { github: 'https://github.com/isiddharthsingh/Multithread-Hashtable-Benchmark' },
+    highlights: [
+      'Demonstrated race-condition data loss with an unlocked baseline, then eliminated it with per-bucket mutexes.',
+      'Compared mutex, reader–writer, and spinlock strategies across thread counts, measuring speed, CPU usage, and data integrity.',
+    ],
+    accent: 'buckets',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
