@@ -59,6 +59,25 @@ const PROJECTS = [
     ],
     accent: 'dining',
   },
+  {
+    slug: 'futeursecure',
+    num: '04',
+    title: 'Futeur',
+    titleIt: 'Secure',
+    year: '2025',
+    role: 'Futeur AI',
+    category: 'Security · Platform',
+    summary: 'Post-quantum security and compliance platform for enterprises.',
+    desc: 'Enterprise security and compliance platform built at Futeur AI. Post-quantum cryptography (CRYSTALS-Kyber, Dilithium) protects data in transit and at rest, layered detection runs on OSSEC, Wazuh, and Suricata, and Hyperledger Fabric keeps audit trails tamper-proof — NIST-compliant end to end.',
+    stack: ['CRYSTALS-Kyber', 'Dilithium', 'OSSEC', 'Wazuh', 'Suricata', 'Hyperledger Fabric'],
+    links: { demo: 'https://www.futeursecure.com/' },
+    highlights: [
+      'Integrated post-quantum cryptography (CRYSTALS-Kyber and Dilithium) to secure data in transit and at rest with 100% NIST compliance and plug-and-play database integration.',
+      'Layered OSSEC HIDS, Wazuh, and Suricata IDS/IPS to cut false positives by 60% and improve threat-detection accuracy by 45%.',
+      'Built a distributed, tamper-proof logging system on Hyperledger Fabric with analytics dashboards for immutable audit trails.',
+    ],
+    accent: 'shield',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
