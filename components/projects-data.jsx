@@ -115,6 +115,24 @@ const PROJECTS = [
     ],
     accent: 'globe',
   },
+  {
+    slug: 'ai-market-analysis',
+    num: '07',
+    title: 'AI Market',
+    titleIt: 'Analysis',
+    year: '2025',
+    role: 'Solo build',
+    category: 'Data · Pipelines',
+    summary: 'Airflow pipeline correlating AI and crypto trends across sources.',
+    desc: 'Containerized data-engineering pipeline that pulls Reddit, GitHub, and CoinGecko daily to track trends across AI, ML, and crypto. Three Airflow DAGs — extraction and ETL, trend correlation with sentiment analysis, and freshness monitoring — run on Celery and Redis with PostgreSQL storage, all under Docker Compose.',
+    stack: ['Airflow', 'Celery', 'Redis', 'PostgreSQL', 'Docker', 'Python'],
+    links: { github: 'https://github.com/isiddharthsingh/Ai-Market-Analysis' },
+    highlights: [
+      'Orchestrated three Airflow DAGs covering extraction and ETL, trend correlation with sentiment analysis, and data freshness and quality monitoring.',
+      'Consolidated Reddit, GitHub, and CoinGecko feeds into PostgreSQL with Celery and Redis task execution, fully containerized via Docker Compose.',
+    ],
+    accent: 'dag',
+  },
 ];
 
 Object.assign(window, { PROJECTS });
