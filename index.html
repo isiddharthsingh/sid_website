@@ -50,6 +50,19 @@
         ESM-only, and IO produces identical entrance behavior) -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie_light.min.js"></script>
+
+  <!-- GoatCounter analytics. Routing is hash-based, so the hash is folded
+       into the counted path and hashchange logs in-site navigation. -->
+  <script>
+  window.goatcounter = {
+    path: function (p) { return location.hash ? p + location.hash : p },
+  };
+  window.addEventListener('hashchange', function () {
+    if (window.goatcounter.count)
+      window.goatcounter.count({ path: location.pathname + location.search + location.hash });
+  });
+  </script>
+  <script data-goatcounter="https://isiddharthsingh.goatcounter.com/count" async src="https://gc.zgo.at/count.v5.js" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="preloader" aria-hidden="true">
