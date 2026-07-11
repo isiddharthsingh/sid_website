@@ -7,9 +7,12 @@
   <meta name="description" content="Siddharth Singh is a senior full-stack engineer in New York building AI agent platforms, distributed systems, and the infrastructure that runs them." />
   <meta name="author" content="Siddharth Singh" />
   <meta name="theme-color" content="#F5F0E8" />
+  <link rel="canonical" href="https://isiddharthsingh.netlify.app/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://isiddharthsingh.netlify.app/" />
+  <meta property="og:site_name" content="Siddharth Singh — Portfolio" />
   <meta property="og:title" content="Siddharth Singh — Senior Software Engineer" />
   <meta property="og:description" content="Full-stack engineer building AI agent platforms, distributed systems, and the infrastructure that runs them. Based in New York." />
   <meta property="og:image" content="https://isiddharthsingh.netlify.app/assets/og-image.png" />
@@ -21,6 +24,55 @@
   <meta name="twitter:title" content="Siddharth Singh — Senior Software Engineer" />
   <meta name="twitter:description" content="Full-stack engineer building AI agent platforms, distributed systems, and the infrastructure that runs them." />
   <meta name="twitter:image" content="https://isiddharthsingh.netlify.app/assets/og-image.png" />
+
+  <!-- Structured data: Person + WebSite + ProfilePage for search and AI/answer engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://isiddharthsingh.netlify.app/#person",
+        "name": "Siddharth Singh",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Senior full-stack engineer in New York building AI agent platforms, distributed systems, and the infrastructure that runs them.",
+        "url": "https://isiddharthsingh.netlify.app/",
+        "image": "https://isiddharthsingh.netlify.app/assets/og-image.png",
+        "email": "mailto:sms10221@nyu.edu",
+        "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" },
+        "worksFor": { "@type": "Organization", "name": "Arvo AI" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "New York University" },
+          { "@type": "CollegeOrUniversity", "name": "SRM Institute of Science and Technology" }
+        ],
+        "sameAs": [
+          "https://github.com/isiddharthsingh",
+          "https://www.linkedin.com/in/isiddharthsingh"
+        ],
+        "knowsAbout": [
+          "AI agent platforms", "Distributed systems", "Cloud infrastructure",
+          "LangGraph", "Retrieval-augmented generation", "Kubernetes", "Terraform",
+          "AWS", "Google Cloud", "Kafka", "React", "Next.js", "Python", "TypeScript"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://isiddharthsingh.netlify.app/#website",
+        "url": "https://isiddharthsingh.netlify.app/",
+        "name": "Siddharth Singh — Portfolio",
+        "about": { "@id": "https://isiddharthsingh.netlify.app/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://isiddharthsingh.netlify.app/#profilepage",
+        "url": "https://isiddharthsingh.netlify.app/",
+        "name": "Siddharth Singh — Senior Software Engineer",
+        "mainEntity": { "@id": "https://isiddharthsingh.netlify.app/#person" },
+        "isPartOf": { "@id": "https://isiddharthsingh.netlify.app/#website" }
+      }
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -76,6 +128,28 @@
   <div id="grain"></div>
   <div id="cursor-glow"></div>
   <div id="root"></div>
+
+  <!-- Static fallback for crawlers and no-JS visitors (the app is client-rendered) -->
+  <noscript>
+    <style>#preloader, #grain, #cursor-glow { display: none }</style>
+    <main style="max-width: 640px; margin: 4rem auto; padding: 0 1.5rem">
+      <h1>Siddharth Singh — Senior Software Engineer</h1>
+      <p>Full-stack engineer in New York building AI agent platforms, distributed
+         systems, and the infrastructure that runs them. Currently a Software
+         Developer at Arvo AI, working on an AI-powered incident root-cause-analysis
+         platform. MS in Computer Science from NYU (2025); 4+ years across cloud
+         infrastructure, distributed systems, and AI agent platforms.</p>
+      <p>This site is a JavaScript app — enable JavaScript for the full experience,
+         or use these links:</p>
+      <ul>
+        <li><a href="https://github.com/isiddharthsingh">GitHub — github.com/isiddharthsingh</a></li>
+        <li><a href="https://www.linkedin.com/in/isiddharthsingh">LinkedIn — linkedin.com/in/isiddharthsingh</a></li>
+        <li><a href="assets/Siddharth_Singh_Resume.pdf">Resume (PDF)</a></li>
+        <li><a href="mailto:sms10221@nyu.edu">sms10221@nyu.edu</a></li>
+        <li><a href="llms.txt">Structured site overview for AI agents (llms.txt)</a></li>
+      </ul>
+    </main>
+  </noscript>
 
   <script type="text/babel" src="tweaks-panel.jsx"></script>
   <script type="text/babel" src="components/hooks.jsx"></script>

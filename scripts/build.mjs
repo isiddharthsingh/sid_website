@@ -48,6 +48,9 @@ for (const rel of JSX_FILES) {
 for (const f of fs.readdirSync(root)) {
   if (f.endsWith('.css')) fs.copyFileSync(path.join(root, f), path.join(dist, f));
 }
+for (const f of ['robots.txt', 'sitemap.xml', 'llms.txt']) {
+  fs.copyFileSync(path.join(root, f), path.join(dist, f));
+}
 fs.cpSync(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true });
 
 // 3. Rewrite index.html: production React, no Babel, .jsx → compiled .js

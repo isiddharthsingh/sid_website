@@ -1,0 +1,65 @@
+# Siddharth Singh
+
+> Senior Software Engineer (full-stack) in New York, NY, building AI agent platforms, distributed systems, and the infrastructure that runs them. Currently a Software Developer at Arvo AI. MS in Computer Science from New York University (2025). 4+ years of experience across cloud infrastructure, distributed systems, and AI agent platforms.
+
+This site (https://isiddharthsingh.netlify.app/) is a single-page app with hash routing — section URLs below use `#/`. Contact: sms10221@nyu.edu · GitHub: https://github.com/isiddharthsingh · LinkedIn: https://www.linkedin.com/in/isiddharthsingh
+
+## Experience
+
+- Arvo AI — Software Developer (Dec 2025–present, New York): AI-powered incident root-cause-analysis platform — a LangGraph ReAct agent running 240-step reasoning across 40+ tools and 4 LLM providers; multi-cloud integrations across 5 cloud providers and 15 monitoring platforms with credential-isolated execution; an alert-correlation engine on Memgraph; 3-collection RAG with episodic agent memory on Weaviate; a multi-agent orchestrator running parallel hypotheses.
+- Kamen Yotov — Software Developer (Jun 2025–Dec 2025, New York): AI productivity assistant integrating Slack, Trello, Gmail, and Google Calendar; cut manual coordination by ~50%.
+- NY Wealth Planning Group (ISAC) — Software Developer (Jul 2025–Dec 2025, New York): owned the ISAC site — landing pages, webinar pages with registration and filtering, WhatsApp automation, volunteer databases.
+- Futeur AI — Software Developer (Feb 2025–May 2025, New York): Next.js microservices with CI/CD; post-quantum cryptography (CRYSTALS-Kyber/Dilithium) database integration; security platform integrating OSSEC HIDS, Wazuh, and Suricata; distributed logging on Hyperledger Fabric.
+- NYU — Web Developer (Sep 2024–May 2025, New York): department and faculty sites on Java + React.
+- Cognizant — Cloud Engineer (Jul 2021–Aug 2023, Hyderabad): scalable GCP infrastructure (Compute Engine, GKE); CI/CD on Cloud Build, Cloud Run, and Terraform; ETL on Dataflow and BigQuery; IAM/VPC security hardening.
+
+## Education
+
+- MS Computer Science, New York University (Sep 2023–May 2025), CGPA 3.72/4.0
+- BTech Computer Science, SRM Institute of Science and Technology, Chennai (2017–2021), CGPA 8.10/10
+
+## Skills
+
+Languages: Python, TypeScript, JavaScript, Java, C, C++, C#, .NET, SQL. AI/agents: LangGraph, Weaviate, Memgraph, OpenAI, PyTorch, RAG, ReAct. Cloud/infra: GCP, AWS, Kubernetes, Docker, Terraform, CircleCI, HashiCorp Vault, LiveKit. Data: BigQuery, Redshift, CockroachDB, DynamoDB, MongoDB, Postgres, Cassandra, Redis. Streaming/web: Kafka, Spark, React, Next.js, Node. Certifications: Google Professional Cloud DevOps Engineer, Google Associate Cloud Engineer, Deep Learning.
+
+## Projects
+
+- [Memory Dump](https://isiddharthsingh.netlify.app/#/projects/memory-dump) (2026, AI · second brain): save links from your phone, ask questions about them later — hybrid vector + BM25 retrieval with Claude answers and citations. [GitHub](https://github.com/isiddharthsingh/memory-dump)
+- [PayTrack](https://isiddharthsingh.netlify.app/#/projects/paytrack) (2026, iOS): auto-logs Apple Pay taps via the iOS Shortcuts Transaction Trigger and categorizes them with AI. [GitHub](https://github.com/isiddharthsingh/apple-pay-tracker)
+- [Voice Agent](https://isiddharthsingh.netlify.app/#/projects/voice-agent) (2025, AI · voice): health-insurance voice agent on LiveKit with turn detection and tool-order guardrails. [GitHub](https://github.com/isiddharthsingh/customer-care-livekit)
+- [Auto Deploy](https://isiddharthsingh.netlify.app/#/projects/auto-deploy) (2025, cloud): describe a deployment in plain English, get a live AWS URL back. [GitHub](https://github.com/isiddharthsingh/One-Click-Deploy)
+- [Deep Research Enhancer](https://isiddharthsingh.netlify.app/#/projects/deep-research-enhancer) (2025, AI): memory layer that cuts redundant searches in OpenAI Deep Research. [GitHub](https://github.com/isiddharthsingh/OpenAI-Deep-Research-Enhancer)
+- [AI Market Analysis](https://isiddharthsingh.netlify.app/#/projects/ai-market-analysis) (2025, data): Airflow pipeline correlating AI and crypto trends across sources. [GitHub](https://github.com/isiddharthsingh/Ai-Market-Analysis)
+- [FuteurVault](https://isiddharthsingh.netlify.app/#/projects/futeur-vault) (2025, security): team password manager with sharing, revocation, and alerts. [GitHub](https://github.com/isiddharthsingh/futeur-wallet)
+- [FuteurSecure](https://isiddharthsingh.netlify.app/#/projects/futeursecure) (2025, security): post-quantum security and compliance platform for enterprises.
+- [ISAC USA](https://isiddharthsingh.netlify.app/#/projects/isac-usa) (2025, web): community platform serving thousands of international students.
+- [CryptoStream AI](https://isiddharthsingh.netlify.app/#/projects/cryptostream-ai) (2024, data): real-time crypto pipeline ingesting Coinbase feeds — Kafka, Spark, Cassandra, LSTM/ARIMA forecasting. [GitHub](https://github.com/isiddharthsingh/CryptoStream-AI)
+- [PyGPT2](https://isiddharthsingh.netlify.app/#/projects/pygpt2) (2024, AI research): GPT-2 (124M) reimplemented and trained from scratch in PyTorch. [GitHub](https://github.com/isiddharthsingh/PyGPT2)
+- [Hashtable Benchmark](https://isiddharthsingh.netlify.app/#/projects/hashtable-benchmark) (2024, systems): measuring lock strategies on a multithreaded hash table. [GitHub](https://github.com/isiddharthsingh/Multithread-Hashtable-Benchmark)
+- [Harmony AI](https://isiddharthsingh.netlify.app/#/projects/harmony-ai) (2024, AI agents): Slack-native assistant unifying Trello, Gmail, and Calendar. [GitHub](https://github.com/isiddharthsingh/mAIgic-nyu/tree/hw3_submission)
+- [GPT Transformer](https://isiddharthsingh.netlify.app/#/projects/gpt-transformer) (2024, AI research): character-level transformer language model built from scratch. [GitHub](https://github.com/isiddharthsingh/GPT_Transformer)
+- [TypeNinja](https://isiddharthsingh.netlify.app/#/projects/typeninja) (2024, web game): a typing game that takes away your backspace. [GitHub](https://github.com/isiddharthsingh/TypeNinja)
+- [LlamaLingo](https://isiddharthsingh.netlify.app/#/projects/llamalingo) (2024, AI): Llama-3 chatbot served entirely from a local machine. [GitHub](https://github.com/isiddharthsingh/LlamaLingo)
+- [TubeGenie](https://isiddharthsingh.netlify.app/#/projects/tubegenie) (2024, AI · RAG): ask questions of any YouTube video, answered by GPT-4-turbo. [GitHub](https://github.com/isiddharthsingh/TubeGenie)
+- [Resume Maestro](https://isiddharthsingh.netlify.app/#/projects/resume-maestro) (2024, AI tools): GPT-4 resume optimizer with LaTeX-quality PDF output. [GitHub](https://github.com/isiddharthsingh/Resume-Maestro)
+- [EcoStock](https://isiddharthsingh.netlify.app/#/projects/ecostock) (2024, data): stock forecasting driven by ESG metrics and sentiment. [GitHub](https://github.com/isiddharthsingh/EcoStock-ESG-Driven-Market-Predictions)
+- [Taleweaver](https://isiddharthsingh.netlify.app/#/projects/taleweaver) (2024, AI · multimodal): image-to-story generation on a serverless AWS backend. [GitHub](https://github.com/isiddharthsingh/Taleweaver)
+- [Smart Home Energy (SHEMS)](https://isiddharthsingh.netlify.app/#/projects/shems) (2023, full stack): smart-home dashboard for devices and energy analytics. [GitHub](https://github.com/isiddharthsingh/Smart-Home-Energy-Management-System-SHEMS)
+- [Dining Concierge](https://isiddharthsingh.netlify.app/#/projects/dining-concierge) (2023, AI): serverless NLP chatbot for restaurant recommendations. [GitHub](https://github.com/isiddharthsingh/Serverless-Dining-Concierge-Chatbot)
+
+## Site pages
+
+- [Home](https://isiddharthsingh.netlify.app/)
+- [About](https://isiddharthsingh.netlify.app/#/about): manifesto, live GitHub status, principles, timeline
+- [Experience](https://isiddharthsingh.netlify.app/#/experience): the six roles above in detail
+- [Projects](https://isiddharthsingh.netlify.app/#/projects): full catalog with per-project detail pages
+- [Tools](https://isiddharthsingh.netlify.app/#/tools): the full stack
+- [GitHub](https://isiddharthsingh.netlify.app/#/github): live commits, repos, contribution heatmap
+- [Resume](https://isiddharthsingh.netlify.app/#/resume) — [direct PDF](https://isiddharthsingh.netlify.app/assets/Siddharth_Singh_Resume.pdf)
+- [Contact](https://isiddharthsingh.netlify.app/#/contact)
+
+## Contact
+
+- Email: sms10221@nyu.edu
+- GitHub: https://github.com/isiddharthsingh
+- LinkedIn: https://www.linkedin.com/in/isiddharthsingh
